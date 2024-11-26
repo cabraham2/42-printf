@@ -6,7 +6,7 @@
 #    By: clementabraham <clementabraham@student.    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/23 07:40:44 by clementabra       #+#    #+#              #
-#    Updated: 2024/11/23 07:43:02 by clementabra      ###   ########.fr        #
+#    Updated: 2024/11/26 16:11:22 by clementabra      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,7 +45,10 @@ WHITE = \033[0;97m
 # Liste des fichiers source pour ft_printf
 SRC_FILES	=	ft_printf\
 				ft_printf_ptr\
-				ft_printf_hex
+				ft_printf_hex\
+				ft_printf_int\
+				ft_print_str\
+				ft_print_char
 
 # Définition des fichiers source et objets
 SRC 		= 	$(addprefix $(SRC_DIR), $(addsuffix .c, $(SRC_FILES)))

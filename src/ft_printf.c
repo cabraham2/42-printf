@@ -6,43 +6,41 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 03:35:34 by clementabra       #+#    #+#             */
-/*   Updated: 2024/11/23 09:50:35 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/11/26 17:06:19 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/libft.h"
+#include "ft_printf.h"
 
 int	checker(va_list args, char carac)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (carac == 'c')
-		 i += ft_putchar_printf(va_arg(args, int));
+		i += print_char(va_arg(args, int));
 	else if (carac == 's')
-		 i += ft_putstr_printf(va_arg(args, char *));
+		i += print_str(va_arg(args, char *));
 	else if (carac == 'p')
-		 i += print_ptr(va_arg(args, int));
-	else if (carac == 'd')
-		 i += ft_putnbr_printf(va_arg(args, int));
-	else if (carac == 'i')
-		 i += ft_putnbr_printf(va_arg(args, int));
+		i += print_ptr(va_arg(args, unsigned long));
+	else if (carac == 'd' || carac == 'i')
+		i += print_int(va_arg(args, int));
 	else if (carac == 'u')
-		 i += print_unsigned(va_arg(args, unsigned int));
+		i += print_unsigned(va_arg(args, unsigned int));
 	else if (carac == 'x')
-		 i += print_hex(va_arg(args, unsigned int), 0);
+		i += print_hex(va_arg(args, unsigned int), 0);
 	else if (carac == 'X')
-		 i += print_hex(va_arg(args, unsigned int), 1);
+		i += print_hex(va_arg(args, unsigned int), 1);
 	else if (carac == '%')
-		 i += ft_putchar_printf('%');
+		i += print_char('%');
 	return (i);
 }
 
 int	ft_printf(const char *str, ...)
 {
-	va_list args;
+	va_list	args;
 	int		i;
-	int 	len;
+	int		len;
 
 	i = 0;
 	len = 0;
@@ -55,7 +53,7 @@ int	ft_printf(const char *str, ...)
 			i++;
 		}
 		else
-			len += ft_putchar_printf(str[i]);
+			len += print_char(str[i]);
 		i++;
 	}
 	va_end(args);

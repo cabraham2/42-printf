@@ -6,7 +6,7 @@
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 16:15:39 by clementabra       #+#    #+#             */
-/*   Updated: 2024/11/23 09:49:36 by clementabra      ###   ########.fr       */
+/*   Updated: 2024/11/26 16:36:06 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,19 +90,4 @@ t_list			*ft_lstnew(void *content);
 void			ft_lstadd_front(t_list **lst, t_list *new);
 t_list			*ft_lstlast(t_list *lst);
 int				ft_lstsize(t_list *lst);
-
-
-///-------------------- PRINTF --------------------
-int				print_hex(unsigned long value, int asc);
-int				checker(va_list args, char carac);
-int				ft_printf(const char *str, ...);
-
-
 void			ft_putchar(char c);
-int	ft_putchar_printf(char c);
-void	ft_putnbr(int nb);
-int		ft_putnbr_printf(int nb);
-int		ft_putstr_printf(char *str);
-void		ft_putstr(char *str);
-int	print_ptr(unsigned long value);
-int	print_unsigned(unsigned long nb);

@@ -1,40 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_ptr.c                                    :+:      :+:    :+:   */
+/*   ft_print_char.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: clementabraham <clementabraham@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/23 03:35:32 by clementabra       #+#    #+#             */
-/*   Updated: 2024/11/26 16:52:12 by clementabra      ###   ########.fr       */
+/*   Created: 2024/11/26 16:07:44 by clementabra       #+#    #+#             */
+/*   Updated: 2024/11/26 17:02:15 by clementabra      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_ptr(unsigned long value)
+int	print_char(char c)
 {
-	int	i;
-
-	i = 0;
-	if (value == 0)
-	{
-		i += print_str("(nil)");
-		return (i);
-	}
-	i += print_char('0');
-	i += print_char('x');
-	i += print_hex(value, 0);
-	return (i);
+	write(1, &c, 1);
+	return (1);
 }
 
-int	print_unsigned(unsigned long nb)
+int	print_percent(void)
 {
-	int	i;
-
-	i = 0;
-	if (nb >= 10)
-		i += print_unsigned(nb / 10);
-	i += print_char(nb % 10 + '0');
-	return (i);
+	write(1, "%", 1);
+	return (1);
 }
